@@ -125,3 +125,46 @@ int main() {
 	
 	return 0;
 }
+
+//Verificando se um número é primo
+int main() {
+	
+	int Num, count, R=0;
+	
+	printf("Digite um numero qualquer: ");
+	scanf("%d", &Num); 
+	
+	for(count=2; count <= Num / 2; count++)
+	{
+		if(Num % count == 0)
+		{
+			R++;
+			break;
+		}
+	}
+	
+	if(R == 0)
+		printf("%d e um numero primo", Num);
+	else
+		printf("%d nao e um numero primo", Num);
+	
+	return 0;
+}
+
+//Calculando fatorial de um número
+int main() {
+	
+	int Num, Fat;
+	
+	printf("Digite um numero para ser fatorado: ");
+	scanf("%d", &Num);
+	
+	for(Fat=1; Num > 1; Num--)
+	{
+		Fat = Fat * Num;
+	}
+	
+	printf("O numero fatorado e: %d", Fat);
+	
+	return 0;
+}
