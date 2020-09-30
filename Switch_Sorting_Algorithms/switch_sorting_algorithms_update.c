@@ -38,6 +38,8 @@ int main() {
 		default: printf("\n\nERRO!!!\n\n"); break;
     }
 
+    free(p);
+
     getch();
 
     return 0;
