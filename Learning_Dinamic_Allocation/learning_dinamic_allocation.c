@@ -25,5 +25,7 @@ int main() {
         printf("Elemento -> %d", p[i]);
     }
 
+    free(p);
+
     return 0;
 }
