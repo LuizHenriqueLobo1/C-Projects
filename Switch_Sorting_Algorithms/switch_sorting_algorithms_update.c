@@ -9,9 +9,9 @@ int main() {
     int tamVetor;
     int *p;
     int opc;
-	int i;
+    int i;
 
-	p = (int *)(malloc(tamVetor * sizeof(int)));
+    p = (int *)(malloc(tamVetor * sizeof(int)));
 
     printf("\nInforme o tamanho do vetor: ");
     scanf("%d", &tamVetor);
@@ -35,7 +35,7 @@ int main() {
 
         case 3: insertion(p, &tamVetor); break;
 
-		default: printf("\n\nERRO!!!\n\n"); break;
+	default: printf("\n\nERRO!!!\n\n"); break;
     }
 
     free(p);
