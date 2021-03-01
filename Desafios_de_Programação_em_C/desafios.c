@@ -9,7 +9,8 @@ int main() {
 	return 0;
 }
 
-// Questão 1 - Dado base e altura
+/* 1.Dado o tamanho da base e da altura de um retângulo, 
+calcular a sua área e o seu perímetro. */
 void calculo_base_e_perimetro_retangulo() {
 
 	float base = 5;
@@ -24,7 +25,8 @@ void calculo_base_e_perimetro_retangulo() {
 	printf("\nPerimetro: %.2f", peri);
 }
 
-// Questão 2 - Dado um lado do quadrado
+/* 2.Dado o tamanho do lado de um quadrado,
+calcular a área e o perímetro do mesmo. */
 void calculo_area_e_perimetro_quadrado() {
 
 	float lado = 5;
@@ -38,7 +40,8 @@ void calculo_area_e_perimetro_quadrado() {
 	printf("\nPerimetro: %.2f", peri);
 }
 
-// Questão 3 - Dado o raio de um círculo
+/* 3.Dado o tamanho do raio de uma circunferência,
+calcular a área e o perímetro da mesma. */
 void calculo_area_e_perimetro_circulo() {
 
 	float raio = 5;
@@ -52,7 +55,8 @@ void calculo_area_e_perimetro_circulo() {
 	printf("\nPerimetro: %.2f", peri);
 }
 
-// Questão 4 - Dado os 3 lados de um triângulo
+/* 4.Dado os três lados de um triângulo, 
+determinar o perímetro do mesmo. */
 void perimetro_triangulo() {
 
 	float lado1 = 2;
@@ -65,7 +69,7 @@ void perimetro_triangulo() {
 	printf("Perimetro: %.2f", peri);
 }
 
-// Questão 5 - Dado um número, mostre o seu sucessor
+/* 5.Ler um número inteiro e exibir o seu sucessor. */
 void numero_sucessor() {
 
 	int num = 0;
@@ -79,7 +83,8 @@ void numero_sucessor() {
 	printf("Numero sucessor: %d", sucessor);
 }
 
-// Questão 6 - Ler 2 números, mostrar quociente e resto da divisão
+/* 6.Ler dois números inteiros e exibir o quociente
+e o resto da divisão inteira entre eles. */
 void quociente_resto_da_divisao() {
 
 	int num1 = 10;
@@ -94,27 +99,27 @@ void quociente_resto_da_divisao() {
 	printf("\nResto: %d", resto);
 }
 
-// Questão 7 - Ler idade, mostrar em anos, meses e dias
+/* 7.Solicitar a idade de uma pessoa em dias e informar
+na tela a idade em anos, meses e dias. */
 void idade_anos_meses_dias() {
 
-	int idade = 0;
 	int idadeAnos = 0;
 	int idadeMeses = 0;
 	int idadeDias = 0;
 
-	printf("Digite sua idade: ");
-	scanf("%d", &idade);
+	printf("Digite sua idade em dias: ");
+	scanf("%d", &idadeDias);
 
-	idadeAnos = idade;
-	idadeMeses = idade * 12;
-	idadeDias = idade * 365;
+	idadeAnos = idadeDias / 365;
+	idadeMeses = idadeDias / 12;
 
 	printf("Idade em anos: %d", idadeAnos);
 	printf("\nIdade em meses: %d", idadeMeses);
 	printf("\nIdade em dias: %d", idadeDias);
 }
 
-// Questão 8 - Ler valor em Fahrenheit e transforma-lo para celsius
+/* 8.Dado que a fórmula para conversão de Fahrenheit para Celsius é tal,
+ler um valor de temperatura em Fahrenheit e exibi-lo em Celsius. */
 void converter_fahr_para_celsius() {
 
 	float valorFahr = 44;
@@ -125,7 +130,8 @@ void converter_fahr_para_celsius() {
 	printf("Valor em celsius: %.2f", valorCelsius);
 }
 
-// Questão 9 - Dado raio e altura, calcular volume do cilindro
+/* 9.Faça um algoritmo que calcule e apresente o valor do volume de 
+uma lata de óleo, dado seu raio e sua altura. */
 void volume_cilindro() {
 
 	float raio = 2;
@@ -139,7 +145,8 @@ void volume_cilindro() {
 	printf("Volume do cilindro: %.2f", volume);
 }
 
-// Questão 10 - Dado um numero menor que 32, mostrar seu valor em binario
+/* 10.Converter um inteiro informado menor que 32
+para sua representação em binário */
 void conversao_para_binario() {
 
 	int num = 0;
@@ -172,8 +179,6 @@ void conversao_para_binario() {
 /* 11.Faça um algoritmo para calcular a nota semestral de um aluno. 
 A nota semestral é obtida pela média aritmética entre a nota de 2 bimestres. 
 Cada nota de bimestre é composta por 2 notas de provas. */
-
-// Questão 11
 void calcula_media_semestral_do_aluno() {
 
 	float notaPrimeiroBimestre = 0;
@@ -191,10 +196,8 @@ void calcula_media_semestral_do_aluno() {
 	printf("Nota semestral: %.1f", mediaSemestral);
 }
 
-/* 12.Faça um algoritmo que transforme uma velocidade fornecida em m/s pelo usuário para Km/h. 
+/* 12.Faça um algoritmo que transforme uma velocidade fornecida em m/s pelo usuário para km/h. 
 Para tal, multiplique o valor em m/s por 3,6. */
-
-// Questão 12
 void transforma_velocidade_ms_km() {
 
 	float velMs = 15;
@@ -204,9 +207,3 @@ void transforma_velocidade_ms_km() {
 
 	printf("Velocidade em %.2f km/h", velKm);
 }
-
-/* 13.Um circuito elétrico é composto de duas resistências R1 e R2 em paralelo,
-e ambas em sequência de uma resistência R3. 
-Faça um algoritmo para calcular a resistência equivalente desse circuito. */
-
-// Questão 13
