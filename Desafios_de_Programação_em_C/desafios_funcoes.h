@@ -13,3 +13,4 @@ void volume_cilindro();
 void conversao_para_binario();
 void calcula_media_semestral_do_aluno();
 void transforma_velocidade_ms_km();
+void calcula_resistencia_equivalente();
