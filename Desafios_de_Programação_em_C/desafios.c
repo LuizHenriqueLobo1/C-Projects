@@ -4,7 +4,7 @@
 
 int main() {
 
-	transforma_velocidade_ms_km(); // Questão Atual
+	calcula_resistencia_equivalente(); // Questão Atual
 
 	return 0;
 }
@@ -206,4 +206,19 @@ void transforma_velocidade_ms_km() {
 	velKm = velMs * 3.6;
 
 	printf("Velocidade em %.2f km/h", velKm);
+}
+
+/* 13.Um circuito elétrico é composto de duas resistências R1 e R2 em paralelo
+e ambas em sequência de uma resistência R3. Faça um algoritmo para calcular
+a resistência equivalente desse circuito. */
+void calcula_resistencia_equivalente() {
+
+	float r1 = 5;
+	float r2 = 3;
+	float r3 = 8;
+	float re = 0;
+
+	re = r1 + r2 + r3;
+
+	printf("Resistencia equivalente: %.2f", re);
 }
