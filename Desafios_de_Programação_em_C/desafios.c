@@ -4,7 +4,7 @@
 
 int main() {
 
-	calcula_resistencia_equivalente(); // Questão Atual
+	sincronizar_semaforos_cidade(); // Questão Atual
 
 	return 0;
 }
@@ -221,4 +221,63 @@ void calcula_resistencia_equivalente() {
 	re = r1 + r2 + r3;
 
 	printf("Resistencia equivalente: %.2f", re);
+}
+
+/* 14.Em uma cidade se deseja sincronizar os semáforos. Com isto, quando um semáforo abre
+(fica verde), os veículos que nele estavam parados tendem a encontrar os próximos
+semáforos também abertos. Para que isto seja feito, os próximos semáforos precisam
+abrir um pouco depois, dependendo da velocidade permitida na via e da distância entre
+eles. Assim, ao abrir o semáforo, um veículo começa a acelerar até atingir a velocidade
+permitida, que mantém até chegar ao próximo semáforo, levando um certo tempo para
+percorrer essa distância. Para que encontre o próximo semáforo aberto, este deve abrir
+um pouco antes da chegada do veículo (por ex: 3 segundos antes). Faça assim um
+algoritmo que informe quanto tempo depois um semáforo deve abrir, dada as seguintes
+informações:
+a. a distância desde o semáforo anterior
+b. a velocidade permitida da via
+c. a aceleração típica dos carros */
+void sincronizar_semaforos_cidade() {
+	
+	// Variáveis de distância são em metros, velocidade são em m/s, tempo são em segundos.
+
+	float distanciaSemaforo = 0;
+	
+	float velocidadePermitida = 0;
+	float velocidadeInicial = 0;     
+	
+	float tempoFinal = 0;	 
+	float tempoInicial = 0;		
+	
+	float aceleracaoCarro = 0;   
+
+	printf("Digite a distancia do semaforo (m): ");
+	scanf("%f", &distanciaSemaforo);
+
+	printf("Digite a velocidade permitida na via (m/s): ");
+	scanf("%f", &velocidadePermitida);
+
+	tempoFinal = distanciaSemaforo / velocidadePermitida;
+	aceleracaoCarro = (velocidadePermitida - velocidadeInicial) / (tempoFinal - tempoInicial);
+
+	float tempoAlcancarVelPermitida = 0;
+	tempoAlcancarVelPermitida = velocidadePermitida / aceleracaoCarro;
+
+	float distanciaPercorridaNesseTempo = 0;
+	distanciaPercorridaNesseTempo = aceleracaoCarro * tempoAlcancarVelPermitida;
+
+	float distanciaRestante = 0;
+	distanciaRestante = distanciaSemaforo - distanciaPercorridaNesseTempo;
+
+	float tempoParaAlcancarFinal = 0;
+	tempoParaAlcancarFinal = distanciaRestante / velocidadePermitida;
+
+	float tempoParaAbrirSemaforo = 0;
+	tempoParaAbrirSemaforo = tempoParaAlcancarFinal - 3;
+
+	printf("Aceleracao do carro: %.2f m/s", aceleracaoCarro);
+	printf("\nTempo para alcancar velocidade permitida: %.2f segundos", tempoAlcancarVelPermitida);
+	printf("\nDistancia percorrida nesse tempo: %.2f metros", distanciaPercorridaNesseTempo);
+	printf("\nDistancia restante: %.2f metros", distanciaRestante);
+	printf("\nTempo para alcancar o final: %.2f segundos", tempoParaAlcancarFinal);
+	printf("\nTempo para abrir semaforo: %.2f segundos", tempoParaAbrirSemaforo);
 }
