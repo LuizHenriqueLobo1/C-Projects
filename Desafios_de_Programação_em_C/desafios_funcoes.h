@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 // Cabeçalho das Funções
 void calculo_base_e_perimetro_retangulo();
 void calculo_area_e_perimetro_quadrado();
