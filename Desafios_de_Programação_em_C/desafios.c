@@ -257,7 +257,8 @@ void sincronizar_semaforos_cidade() {
 	tempoAlcancarVelPermitida = velocidadePermitida / aceleracaoCarro;
 
 	float distanciaPercorridaNesseTempo = 0;
-	distanciaPercorridaNesseTempo = aceleracaoCarro * tempoAlcancarVelPermitida;
+	distanciaPercorridaNesseTempo = aceleracaoCarro * 
+	(tempoAlcancarVelPermitida * tempoAlcancarVelPermitida) / 2;
 
 	float distanciaRestante = 0;
 	distanciaRestante = distanciaSemaforo - distanciaPercorridaNesseTempo;
