@@ -241,23 +241,17 @@ void sincronizar_semaforos_cidade() {
 	// Variáveis de distância são em metros, velocidade são em m/s, tempo são em segundos.
 
 	float distanciaSemaforo = 0;
-	
 	float velocidadePermitida = 0;
-	float velocidadeInicial = 0;     
-	
-	float tempoFinal = 0;	 
-	float tempoInicial = 0;		
-	
-	float aceleracaoCarro = 0;   
+	float aceleracaoCarro = 0;
 
 	printf("Digite a distancia do semaforo (m): ");
 	scanf("%f", &distanciaSemaforo);
 
 	printf("Digite a velocidade permitida na via (m/s): ");
 	scanf("%f", &velocidadePermitida);
-
-	tempoFinal = distanciaSemaforo / velocidadePermitida;
-	aceleracaoCarro = (velocidadePermitida - velocidadeInicial) / (tempoFinal - tempoInicial);
+	
+	printf("Digite a acelaracao do veiculo (m/s): ");
+	scanf("%f", &aceleracaoCarro);
 
 	float tempoAlcancarVelPermitida = 0;
 	tempoAlcancarVelPermitida = velocidadePermitida / aceleracaoCarro;
