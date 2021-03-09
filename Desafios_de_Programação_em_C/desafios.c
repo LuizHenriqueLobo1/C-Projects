@@ -4,7 +4,7 @@
 
 int main() {
 
-	sincronizar_semaforos_cidade(); // Questão Atual
+	inverter_numero_tres_algorismos(); // Questão Atual
 
 	return 0;
 }
@@ -275,4 +275,59 @@ void sincronizar_semaforos_cidade() {
 	printf("\nDistancia restante: %.2f metros", distanciaRestante);
 	printf("\nTempo para alcancar o final: %.2f segundos", tempoParaAlcancarFinal);
 	printf("\nTempo para abrir semaforo: %.2f segundos", tempoParaAbrirSemaforo);
+}
+
+/* 15.Num dia de sol, você deseja medir a altura de um prédio, porém, 
+a trena não é suficientemente longa. Assumindo que seja possível medir sua sombra e
+a do prédio no chão, e que você lembre da sua altura, faça um programa para ler
+os dados necessários e calcular a altura do prédio. */
+void medir_altura_predio_sombra() {
+
+	float alturaPessoa = 0;
+	float alturaPredio = 0;
+	float sombraPessoa = 0;
+	float sombraPredio = 0;
+
+	printf("\nDigite sua altura em metros: ");
+	scanf("%f", &alturaPessoa);
+
+	printf("\nDigite a altura da sua sobra em metros: ");
+	scanf("%f", &sombraPessoa);
+
+	printf("\nDigite a altura da sombra do predio em metros: ");
+	scanf("%f", &sombraPredio);
+
+	alturaPredio = sombraPredio * (alturaPessoa / sombraPessoa);
+
+	printf("\nA altura do predio e aproximadamente %.2f metros\n", alturaPredio);
+}
+
+/* 16.Escreva um programa para gerar o invertido de um número 
+com três algarismos (exemplo: o invertido de 498 é 894). */
+void inverter_numero_tres_algorismos() {
+
+	int num = 0;
+	int digito1 = 0;
+	int digito2 = 0;
+	int digito3 = 0;
+	int digito1in = 0;
+	int digito2in = 0;
+	int digito3in = 0;
+	int numInvertido = 0;
+
+	printf("\nDigite um numero de 3 algorismos para ser invertido: ");
+	scanf("%d", &num);
+
+	digito1 = num / 100;
+	digito2 = num % 100;
+	digito2 = digito2 / 10;
+	digito3 = num % 10;
+
+	digito1in = digito1;
+	digito2in = digito2 * 10;
+	digito3in = digito3 * 100;
+
+	numInvertido = digito3in + digito2in + digito1in;
+
+	printf("\nNumero invertido: %d\n", numInvertido);
 }
