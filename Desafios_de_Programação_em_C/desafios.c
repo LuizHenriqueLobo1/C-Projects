@@ -319,8 +319,7 @@ void inverter_numero_tres_algorismos() {
 	scanf("%d", &num);
 
 	digito1 = num / 100;
-	digito2 = num % 100;
-	digito2 = digito2 / 10;
+	digito2 = (num % 100) / 10;
 	digito3 = num % 10;
 
 	digito1in = digito1;
