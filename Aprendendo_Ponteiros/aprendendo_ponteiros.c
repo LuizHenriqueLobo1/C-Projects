@@ -13,7 +13,7 @@ int main() {
 
 	printf("\nO atual valor de x eh: %d\n", x);
 
-	trocaNumero(p);
+	novoValor(p);
 
 	printf("\nO novo valor de x eh: %d\n", x);
 
