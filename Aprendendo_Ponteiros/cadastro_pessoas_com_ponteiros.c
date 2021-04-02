@@ -14,7 +14,9 @@ typedef struct {
 int menuPrincipal();
 void cadastrarPessoa(dados pessoa[], int *qtdPessoas);
 void listarPessoas(dados pessoa[], int *qtdPessoas);
+void alterarPessoa(dados pessoa[], int *qtdPessoas);
 void removerPessoa(dados pessoa[], int *qtdPessoas);
+int menuAlterarPessoa();
 
 int main() {
 
@@ -53,7 +55,12 @@ int main() {
 			}
 
 			case 3: {
-				printf("\nAINDA SENDO IMPLEMENTADO!\n");
+				if(quantidadePessoas <= 0) {
+					printf("\nNENHUMA PESSOA CADASTRADA!\n");
+				} else {
+					alterarPessoa(pessoa, qtdPessoas);
+					printf("\nO CADASTRO DA PESSOA FOI ALTERADO COM SUCESSO!\n");
+				}
 				break;
 			}
 
@@ -140,6 +147,77 @@ void listarPessoas(dados pessoa[], int *qtdPessoas) {
 	}
 }
 
+void alterarPessoa(dados pessoa[], int *qtdPessoas) {
+
+	int idAlteracao;
+	int flag = 0;
+	int opcao;
+	char novoNome[50];
+	char novoSexo;
+	int novaIdade;
+	float novaAltura;
+
+	setbuf(stdin, NULL);
+	printf("\nDigite o id da pessoa que deseja alterar: ");
+	scanf("%d", &idAlteracao);
+	idAlteracao--;
+
+	while(flag == 0) {
+
+		opcao = menuAlterarPessoa(opcao);
+
+		switch(opcao) {
+
+			case 1: {
+				setbuf(stdin, NULL);
+				printf("\nDigite o novo nome: ");
+				fgets(novoNome, 50, stdin);
+				strcpy(pessoa[idAlteracao].nome, novoNome);
+				flag = 1;
+				break;
+			}
+
+			case 2: {
+				setbuf(stdin, NULL);
+				printf("\nDigite o novo sexo: ");
+				scanf("%c", &novoSexo);
+				pessoa[idAlteracao].sexo = novoSexo;
+				flag = 1;
+				break;
+			}
+
+			case 3: {
+				setbuf(stdin, NULL);
+				printf("\nDigite a nova idade: ");
+				scanf("%d", &novaIdade);
+				pessoa[idAlteracao].idade = novaIdade;
+				flag = 1;
+				break;
+			}
+
+			case 4: {
+				setbuf(stdin, NULL);
+				printf("\nDigite a nova altura: ");
+				scanf("%f", &novaAltura);
+				pessoa[idAlteracao].altura = novaAltura;
+				flag = 1;
+				break;
+			}
+
+			case 5: {
+				printf("\nVOLTANDO AO MENU PRINCIAL!\n");
+				flag = 1;
+				break;
+			}
+
+			default: {
+				flag = 1;
+				break;
+			}
+		}
+	}
+}
+
 void removerPessoa(dados pessoa[], int *qtdPessoas) {
 
 	int idExclusao;
@@ -158,4 +236,21 @@ void removerPessoa(dados pessoa[], int *qtdPessoas) {
 	}
 
 	*qtdPessoas-=1;
+}
+
+int menuAlterarPessoa() {
+
+	int opcao;
+
+	printf("\n----- ALTERAR CADASTRO -----\n");
+	printf("1) ALTERAR NOME\n");
+	printf("2) ALTERAR SEXO\n");
+	printf("3) ALTERAR IDADE\n");
+	printf("4) ALTERAR ALTURA\n");
+	printf("5) SAIR");
+	printf("\n----------------------------\n");
+	printf("> ");
+	scanf("%d", &opcao);
+
+	return opcao;
 }
