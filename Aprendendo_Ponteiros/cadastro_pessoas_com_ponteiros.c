@@ -14,7 +14,7 @@ typedef struct {
 int menuPrincipal();
 void cadastrarPessoa(dados pessoa[], int *qtdPessoas);
 void listarPessoas(dados pessoa[], int *qtdPessoas);
-void alterarPessoa(dados pessoa[], int *qtdPessoas);
+int alterarPessoa(dados pessoa[], int *qtdPessoas);
 void removerPessoa(dados pessoa[], int *qtdPessoas);
 int menuAlterarPessoa();
 
@@ -58,8 +58,11 @@ int main() {
 				if(quantidadePessoas <= 0) {
 					printf("\nNENHUMA PESSOA CADASTRADA!\n");
 				} else {
-					alterarPessoa(pessoa, qtdPessoas);
-					printf("\nO CADASTRO DA PESSOA FOI ALTERADO COM SUCESSO!\n");
+					if(alterarPessoa(pessoa, qtdPessoas) == 1) {
+						printf("\nO CADASTRO DA PESSOA FOI ALTERADO COM SUCESSO!\n");
+					} else {
+						break;
+					}
 				}
 				break;
 			}
@@ -114,19 +117,19 @@ void cadastrarPessoa(dados pessoa[], int *qtdPessoas) {
 	pessoa[*qtdPessoas].id = *qtdPessoas + 1;
 
 	setbuf(stdin, NULL);
-	printf("\nDigite o nome da pessoa: ");
+	printf("\nDIGITE O NOME DA PESSOA: ");
 	fgets(pessoa[*qtdPessoas].nome, 50, stdin);
 
 	setbuf(stdin, NULL);
-	printf("\nDigite o sexo da pessoa: ");
+	printf("\nDIGITE O SEXO DA PESSOA: ");
 	scanf("%c", &pessoa[*qtdPessoas].sexo);
 
 	setbuf(stdin, NULL);
-	printf("\nDigite a idade da pessoa: ");
+	printf("\nDIGITE A IDADE DA PESSOA: ");
 	scanf("%d", &pessoa[*qtdPessoas].idade);
 
 	setbuf(stdin, NULL);
-	printf("\nDigite a altura da pessoa: ");
+	printf("\nDIGITE A ALTURA DA PESSOA: ");
 	scanf("%f", &pessoa[*qtdPessoas].altura);
 
 	*qtdPessoas+=1;
@@ -138,27 +141,28 @@ void listarPessoas(dados pessoa[], int *qtdPessoas) {
 
 	for(i = 0; i < *qtdPessoas; i++) {
 		printf("\n---------------------------\n");
-		printf("ID: %d", pessoa[i].id);
-		printf("\nNOME: %s", pessoa[i].nome);
-		printf("SEXO: %c", pessoa[i].sexo);
-		printf("\nIDADE: %d", pessoa[i].idade);
-		printf("\nALTURA: %.2f", pessoa[i].altura);
+		printf("ID:     %d\n", pessoa[i].id);
+		printf("NOME:   %s", pessoa[i].nome);
+		printf("SEXO:   %c\n", pessoa[i].sexo);
+		printf("IDADE:  %d\n", pessoa[i].idade);
+		printf("ALTURA: %.2f", pessoa[i].altura);
 		printf("\n---------------------------\n");
 	}
 }
 
-void alterarPessoa(dados pessoa[], int *qtdPessoas) {
+int alterarPessoa(dados pessoa[], int *qtdPessoas) {
 
 	int idAlteracao;
 	int flag = 0;
 	int opcao;
+	int retorno = 0;
 	char novoNome[50];
 	char novoSexo;
 	int novaIdade;
 	float novaAltura;
 
 	setbuf(stdin, NULL);
-	printf("\nDigite o id da pessoa que deseja alterar: ");
+	printf("\nDIGITE O ID DA PESSOA QUE DESEJA ALTERAR: ");
 	scanf("%d", &idAlteracao);
 	idAlteracao--;
 
@@ -170,52 +174,60 @@ void alterarPessoa(dados pessoa[], int *qtdPessoas) {
 
 			case 1: {
 				setbuf(stdin, NULL);
-				printf("\nDigite o novo nome: ");
+				printf("\nDIGITE O NOVO NOME: ");
 				fgets(novoNome, 50, stdin);
 				strcpy(pessoa[idAlteracao].nome, novoNome);
+				retorno = 1;
 				flag = 1;
 				break;
 			}
 
 			case 2: {
 				setbuf(stdin, NULL);
-				printf("\nDigite o novo sexo: ");
+				printf("\nDIGITE O NOVO SEXO: ");
 				scanf("%c", &novoSexo);
 				pessoa[idAlteracao].sexo = novoSexo;
+				retorno = 1;
 				flag = 1;
 				break;
 			}
 
 			case 3: {
 				setbuf(stdin, NULL);
-				printf("\nDigite a nova idade: ");
+				printf("\nDIGITE A NOVA IDADE: ");
 				scanf("%d", &novaIdade);
 				pessoa[idAlteracao].idade = novaIdade;
+				retorno = 1;
 				flag = 1;
 				break;
 			}
 
 			case 4: {
 				setbuf(stdin, NULL);
-				printf("\nDigite a nova altura: ");
+				printf("\nDIGITE A NOVA ALTURA: ");
 				scanf("%f", &novaAltura);
 				pessoa[idAlteracao].altura = novaAltura;
+				retorno = 1;
 				flag = 1;
 				break;
 			}
 
 			case 5: {
 				printf("\nVOLTANDO AO MENU PRINCIAL!\n");
+				retorno = 0;
 				flag = 1;
 				break;
 			}
 
 			default: {
+				retorno = 0;
 				flag = 1;
 				break;
 			}
 		}
 	}
+
+	return retorno;
 }
 
 void removerPessoa(dados pessoa[], int *qtdPessoas) {
@@ -223,7 +235,7 @@ void removerPessoa(dados pessoa[], int *qtdPessoas) {
 	int idExclusao;
 	int i;
 
-	printf("\nDigite o id da pessoa que deseja remover: ");
+	printf("\nDIGITE O ID DA PESSOA QUE DESEJA REMOVER: ");
 	scanf("%d", &idExclusao);
 	idExclusao--;
 
