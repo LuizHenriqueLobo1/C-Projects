@@ -15,3 +15,4 @@ void calcula_resistencia_equivalente();
 void sincronizar_semaforos_cidade();
 void medir_altura_predio_sombra();
 void inverter_numero_tres_algorismos();
+void distribuicaoOtimaNotas();
