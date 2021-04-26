@@ -88,7 +88,6 @@ int validarData(char data[]) {
 				printf("\nDia invalido!\n");
 				retorno = 0;
 			} else {
-				//printf("\nDia valido!\n");
 				retorno = 1;
 			}
 		} else if(mesI == 2) {
@@ -101,26 +100,22 @@ int validarData(char data[]) {
 				contador++;
 			// Contador > 0 = Ano bissexto
 			if(contador > 0) {
-				//printf("\nAno bissexto!\n");
 				if(mesI == 2) {
 					if(diaI <= 0 || diaI > 29) {
 						printf("\nDia invalido!\n");
 						retorno = 0;
 					} else {
-						//printf("\nDia valido!\n");
 						retorno = 1;
 					}	
 				}
 			}
 			// Contador <= 0 = Ano nao bissexto
 			else {
-				//printf("\nAno nao eh bissexto!\n");
 				if(mesI == 2) {
 					if(diaI <= 0 || diaI > 28) {
 						printf("\nDia invalido!\n");
 						retorno = 0;
 					} else {
-						//printf("\nDia valido!\n");
 						retorno = 1;
 					}
 				}
@@ -131,7 +126,6 @@ int validarData(char data[]) {
 				printf("\nDia invalido!\n");
 				retorno = 0;
 			} else {
-				//printf("\nDia valido!\n");
 				retorno = 1;
 			}
 		}
