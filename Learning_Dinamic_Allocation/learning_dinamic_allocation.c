@@ -10,7 +10,7 @@ int main() {
     printf("\nDigite a quantidade de elementos: ");
     scanf("%d", &qtdElementos);
 
-    p = (int *)(malloc(qtdElementos * sizeof(int)));
+    p = (malloc(qtdElementos * sizeof(int)));
 
     if(p == NULL) {
         printf("ERRO!!!");
