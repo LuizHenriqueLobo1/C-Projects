@@ -20,22 +20,36 @@ int main() {
 		switch(opcao) {
 
 			case 0: {
-				printf("\nPROGRAMA ENCERRADO!\n");
+				printf("\nPROGRAMA ENCERRADO!\n\n");
 				loop = 0;
 				break;
 			}
 
 			case 1: {
 
-				printf("\nDigite a posicao > ");
+				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
+				while(1) {
+					if(posicao < 1 || posicao > 10) {
+						printf("\nPOSICAO INVALIDA\nTente novamente: ");
+						scanf("%d", &posicao);
+					} else
+						break;
+				}
 				posicao--;
 
-				printf("\nDigite o tamanho > ");
+				printf("\nDigite o tamanho: ");
 				scanf("%d", &tamanho);
+				while(1) {
+					if(tamanho < 1) {
+						printf("\nTAMANHO INVALIDO\nTente novamente: ");
+						scanf("%d", &tamanho);
+					} else
+						break;
+				}
 
 				criarEstruturaAuxiliar(vetorPrincipal, posicao, tamanho);
-				printf("\nESTRUTURA AUXILIAR DE TAMANHO %d, CRIADA NA POSICAO %d\n", tamanho, posicao + 1);
+				printf("\nESTRUTURA AUXILIAR CRIADA COM SUCESSO\n");
 				break;
 			}
 
@@ -49,13 +63,14 @@ int main() {
 				scanf("%d", &valor);
 
 				inserirValorEstruturaAuxiliar(vetorPrincipal, posicao, valor);
-				printf("\nVALOR %d INSERIDO NA ESTRUTURA DE POSICAO %d\n", valor, posicao + 1);
+				printf("\nVALOR INSERIDO COM SUCESSO\n");
 				break;
 			}
 
 			case 3: {
 				printf("\nESTRUTURAS\n");
 				printarEstrutura(vetorPrincipal);
+				printf("\n");
 				break;
 			}
 
@@ -81,7 +96,7 @@ int menu() {
 
 	int opcao;
 
-	printf("\n\n-------------MENU-------------");
+	printf("\n-------------MENU-------------");
 	printf("\n0. SAIR");
 	printf("\n1. CRIAR ESTRUTURA AUX");
 	printf("\n2. INSERIR VALOR NA ESTRUT AUX");
