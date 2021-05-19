@@ -20,18 +20,32 @@ int main() {
 		switch(opcao) {
 
 			case 0: {
-				printf("\nPROGRAMA ENCERRADO!\n\n");
+				printf("\nPROGRAMA ENCERRADO!\n");
 				loop = 0;
 				break;
 			}
 
 			case 1: {
 
+				printf("\n<CRIANDO ESTRUTURA AUXILIAR>\n");
+
+				int contador = 0;
+
+				for(int i = 0; i < TAM; i++) {
+					if(vetorPrincipal[i].tamEstruturaAux > 0)
+						contador++;
+				}
+
+				if(contador == 10) {
+					printf("\nLIMETE MAXIMO DE ESTRUTURAS AUXILIARES ATINGIDO\n");
+					break;
+				}
+
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
 				while(1) {
-					if(posicao < 1 || posicao > 10) {
-						printf("\nPOSICAO INVALIDA\nTente novamente: ");
+					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux > 0) {
+						printf("\nPOSICAO INVALIDA! Tente novamente: ");
 						scanf("%d", &posicao);
 					} else
 						break;
@@ -42,7 +56,7 @@ int main() {
 				scanf("%d", &tamanho);
 				while(1) {
 					if(tamanho < 1) {
-						printf("\nTAMANHO INVALIDO\nTente novamente: ");
+						printf("\nTAMANHO INVALIDO! Tente novamente: ");
 						scanf("%d", &tamanho);
 					} else
 						break;
@@ -55,11 +69,32 @@ int main() {
 
 			case 2: {
 
-				printf("\nDigite a posicao > ");
+				printf("\n<INSERINDO VALOR EM ESTRUTURA AUXILIAR>\n");
+
+				int contador = 0;
+
+				for(int i = 0; i < TAM; i++) {
+					if(vetorPrincipal[i].tamEstruturaAux == 0)
+						contador++;
+				}
+
+				if(contador == 10) {
+					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
+				while(1) {
+					if(posicao <= 0 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
+						printf("\nPOSICAO INVALIDA! Tente novamente: ");
+						scanf("%d", &posicao);
+					} else
+						break;
+				}
 				posicao--;
 
-				printf("\nDigite o valor > ");
+				printf("\nDigite o valor: ");
 				scanf("%d", &valor);
 
 				inserirValorEstruturaAuxiliar(vetorPrincipal, posicao, valor);
@@ -68,14 +103,14 @@ int main() {
 			}
 
 			case 3: {
-				printf("\nESTRUTURAS\n");
+				printf("\n<PRINTANDO ESTRUTURAS>\n");
 				printarEstrutura(vetorPrincipal);
 				printf("\n");
 				break;
 			}
 
 			case 4: {
-				printf("\nDADOS DAS ESTRUTUAS\n");
+				printf("\n<LISTANDO DADOS DAS ESTRUTUAS>\n");
 				getDadosTodasEstruturas(vetorPrincipal);
 				break;
 			}
