@@ -20,6 +20,7 @@ int main() {
 		switch(opcao) {
 
 			case 0: {
+				finalizar(vetorPrincipal);
 				printf("\nPROGRAMA ENCERRADO!\n");
 				loop = 0;
 				break;

@@ -13,3 +13,4 @@ void criarEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int tamanho
 void inserirValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int valor);
 void printarEstrutura(estrutura vetorPrincipal[]);
 void getDadosTodasEstruturas(estrutura vetorPrincipal[]);
+void finalizar(estrutura vetorPrincipal[]);
