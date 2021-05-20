@@ -73,3 +73,16 @@ void getDadosTodasEstruturas(estrutura vetorPrincipal[]) {
 			printf("%d\n", vetorAux[i]);
 	}
 }
+
+void finalizar(estrutura vetorPrincipal[]) {
+
+	int i;
+
+	for(i = 0; i < TAM; i++) {
+		if(vetorPrincipal[i].tamEstruturaAux > 0) {
+			free(vetorPrincipal[i].pEstruturaAuxiliar);
+			vetorPrincipal[i].qtdElementos = 0;
+			vetorPrincipal[i].tamEstruturaAux = 0;
+		}
+	}
+}
