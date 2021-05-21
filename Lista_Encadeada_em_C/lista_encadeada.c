@@ -6,21 +6,23 @@ typedef struct no{
 	struct no *prox;
 }No;
 
-void inserirNaListaEncadeada(No **lista, int num);
+void criarNoComValor(No **lista, int num);
 void imprimirListaEncadeada(No *lista);
 
 int main() {
 
-	int *lista;
+	No *lista;
 	lista = NULL;
 
-	inserirNaListaEncadeada(&lista, 5);
+	for(int i = 0; i < 10; i++)
+		criarNoComValor(&lista, i+1);
+
 	imprimirListaEncadeada(lista);
 
 	return 0;
 }
 
-void inserirNaListaEncadeada(No **lista, int num) {
+void criarNoComValor(No **lista, int num) {
 
 	No *p;
 	p = (No*)malloc(sizeof(No));
