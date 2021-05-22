@@ -6,23 +6,55 @@ typedef struct no{
 	struct no *prox;
 }No;
 
-void criarNoComValor(No **lista, int num);
+void inserirNaListaEncadeada(No **lista, int num);
 void imprimirListaEncadeada(No *lista);
+int menu();
 
 int main() {
 
 	No *lista;
 	lista = NULL;
 
-	for(int i = 0; i < 10; i++)
-		criarNoComValor(&lista, i+1);
+	int loop = 1;
+	int opcao;
+	int valor;
 
-	imprimirListaEncadeada(lista);
+	while(loop == 1) {
+
+		opcao = menu();
+
+		switch(opcao) {
+
+			case 0: {
+				printf("\nPROGRAMA ENCERRADO\n");
+				loop = 0;
+				break;
+			}
+
+			case 1: {
+				printf("\nDIGITE O VALOR: ");
+				scanf("%d", &valor);
+				inserirNaListaEncadeada(&lista, valor);
+				break;
+			}
+
+			case 2: {
+				printf("\nVALORES DA LISTA\n");
+				imprimirListaEncadeada(lista);
+				break;
+			}
+
+			default: {
+				printf("\nOPCAO INVALIDA\n");
+				break;
+			}
+		}
+	}
 
 	return 0;
 }
 
-void criarNoComValor(No **lista, int num) {
+void inserirNaListaEncadeada(No **lista, int num) {
 
 	No *p;
 	p = (No*)malloc(sizeof(No));
@@ -40,9 +72,23 @@ void imprimirListaEncadeada(No *lista) {
 
 	No *aux = lista;
 
-	printf("\nVALORES DA LISTA\n");
 	while(aux != NULL) {
 		printf("%d\n", aux->valor);
 		aux = aux->prox;
 	}
+}
+
+int menu() {
+
+	int opcao;
+
+	printf("\n-------- MENU --------");
+	printf("\n0. SAIR");
+	printf("\n1. INSERIR NA LISTA");
+	printf("\n2. IMPRIMIR LISTA");
+	printf("\n----------------------");
+	printf("\n> ");
+	scanf("%d", &opcao);
+
+	return opcao;
 }
