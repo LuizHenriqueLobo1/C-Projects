@@ -31,6 +31,19 @@ void inserirValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int 
 	vetorPrincipal[posicao].qtdElementos++;
 }
 
+void removerValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux) {
+
+	int i = 0;
+
+	vetorPrincipal[posicao].pEstruturaAuxiliar[posicaoEstruturaAux] = 0;
+
+	for(i = posicaoEstruturaAux; i < vetorPrincipal[posicao].qtdElementos; i++) {
+		vetorPrincipal[posicao].pEstruturaAuxiliar[i] = vetorPrincipal[posicao].pEstruturaAuxiliar[i+1];
+	}
+
+	vetorPrincipal[posicao].qtdElementos--;
+}
+
 void printarEstrutura(estrutura vetorPrincipal[]) {
 
 	int i, y;
