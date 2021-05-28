@@ -14,4 +14,5 @@ void inserirValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int 
 void removerValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux);
 void printarEstrutura(estrutura vetorPrincipal[]);
 void getDadosTodasEstruturas(estrutura vetorPrincipal[]);
+void removerTodosValoresEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 void finalizar(estrutura vetorPrincipal[]);

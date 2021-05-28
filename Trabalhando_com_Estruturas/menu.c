@@ -38,7 +38,7 @@ int main() {
 						contador++;
 				}
 
-				if(contador == 10) {
+				if(contador == TAM) {
 					printf("\nLIMETE MAXIMO DE ESTRUTURAS AUXILIARES ATINGIDO\n");
 					break;
 				}
@@ -80,7 +80,7 @@ int main() {
 						contador++;
 				}
 
-				if(contador == 10) {
+				if(contador == TAM) {
 					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
 					break;
 				}
@@ -115,7 +115,7 @@ int main() {
 						contador++;
 				}
 
-				if(contador == 10) {
+				if(contador == TAM) {
 					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
 					break;
 				}
@@ -143,7 +143,7 @@ int main() {
 				posicaoEstruturaAux--;
 
 				removerValorEstruturaAuxiliar(vetorPrincipal, posicao, posicaoEstruturaAux);
-				printf("\n<VALOR REMOVIDO COM SUCESSO>\n");
+				printf("\nVALOR REMOVIDO COM SUCESSO\n");
 				break;
 			}
 
@@ -157,6 +157,37 @@ int main() {
 			case 5: {
 				printf("\n<LISTANDO DADOS DAS ESTRUTUAS>\n");
 				getDadosTodasEstruturas(vetorPrincipal);
+				break;
+			}
+
+			case 6: {
+				printf("\n<REMOVENDO TODOS OS VALORES DE UMA ESTRUTURA AUXILIAR>\n");
+
+				int contador = 0;
+
+				for(int i = 0; i < TAM; i++) {
+					if(vetorPrincipal[i].tamEstruturaAux == 0)
+						contador++;
+				}
+
+				if(contador == TAM) {
+					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				while(1) {
+					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux == 0) {
+						printf("\nPOSICAO INVALIDA! Tente novamente: ");
+						scanf("%d", &posicao);
+					} else
+						break;
+				}
+				posicao--;
+
+				removerTodosValoresEstruturaAuxiliar(vetorPrincipal, posicao);
+				printf("\nTODOS OS VALORES REMOVIDOS COM SUCESSO\n");
 				break;
 			}
 
@@ -176,14 +207,15 @@ int menu() {
 
 	int opcao;
 
-	printf("\n-------------MENU-------------");
+	printf("\n---------------MENU---------------");
 	printf("\n0. SAIR");
 	printf("\n1. CRIAR ESTRUTURA AUX");
 	printf("\n2. INSERIR VALOR NA ESTRUT AUX");
 	printf("\n3. REMOVER VALOR DA ESTRUT AUX");
 	printf("\n4. PRINTAR ESTRUTURAS");
 	printf("\n5. PEGAR TODOS OS DADOS");
-	printf("\n------------------------------");
+	printf("\n6. REMOVER TODOS VAL ESTRUT AUX");
+	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);
 

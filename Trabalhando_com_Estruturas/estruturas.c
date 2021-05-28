@@ -87,6 +87,17 @@ void getDadosTodasEstruturas(estrutura vetorPrincipal[]) {
 	}
 }
 
+void removerTodosValoresEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
+	
+	int i;
+
+	for(i = 0; i < vetorPrincipal[posicao].qtdElementos; i++) {
+		vetorPrincipal[posicao].pEstruturaAuxiliar[i] = 0;
+	}
+
+	vetorPrincipal[posicao].qtdElementos = 0;
+}
+
 void finalizar(estrutura vetorPrincipal[]) {
 
 	int i;
