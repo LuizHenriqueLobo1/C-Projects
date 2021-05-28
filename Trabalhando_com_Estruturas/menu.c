@@ -88,7 +88,7 @@ int main() {
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
 				while(1) {
-					if(posicao <= 0 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
+					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
 						printf("\nPOSICAO INVALIDA! Tente novamente: ");
 						scanf("%d", &posicao);
 					} else
@@ -105,6 +105,54 @@ int main() {
 			}
 
 			case 3: {
+
+				printf("\n<ALTERANDO VALOR DA ESTRUTURA AUXILIAR>\n");
+
+				int contador = 0;
+
+				for(int i = 0; i < TAM; i++) {
+					if(vetorPrincipal[i].tamEstruturaAux <= 0)
+						contador++;
+				}
+
+				if(contador == TAM) {
+					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				while(1) {
+					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
+						printf("\nPOSICAO INVALIDA! Tente novamente: ");
+						scanf("%d", &posicao);
+					} else
+						break;
+				}
+				posicao--;
+
+				printf("\nDigite a posicao do valor na estrutura auxiliar: ");
+				scanf("%d", &posicaoEstruturaAux);
+				while(1) {
+					if(posicaoEstruturaAux < 1 || posicaoEstruturaAux > vetorPrincipal[posicao].qtdElementos) {
+						printf("\nPOSICAO DO VALOR INVALIDA! Tente novamente: ");
+						scanf("%d", &posicaoEstruturaAux);
+					} else
+						break;
+				}
+				posicaoEstruturaAux--;
+
+
+				printf("\nDigite o novo valor: ");
+				scanf("%d", &valor);
+
+				alterarValorEstruturaAuxiliar(vetorPrincipal, posicao, posicaoEstruturaAux, valor);
+				printf("\nVALOR ALTERADO COM SUCESSO\n");
+
+				break;
+			}
+
+			case 4: {
 
 				printf("\n<REMOVENDO VALOR EM ESTRUTURA AUXILIAR>\n");
 
@@ -147,20 +195,20 @@ int main() {
 				break;
 			}
 
-			case 4: {
+			case 5: {
 				printf("\n<PRINTANDO ESTRUTURAS>\n");
 				printarEstrutura(vetorPrincipal);
 				printf("\n");
 				break;
 			}
 
-			case 5: {
+			case 6: {
 				printf("\n<LISTANDO DADOS DAS ESTRUTUAS>\n");
 				getDadosTodasEstruturas(vetorPrincipal);
 				break;
 			}
 
-			case 6: {
+			case 7: {
 				printf("\n<REMOVENDO TODOS OS VALORES DE UMA ESTRUTURA AUXILIAR>\n");
 
 				int contador = 0;
@@ -211,10 +259,11 @@ int menu() {
 	printf("\n0. SAIR");
 	printf("\n1. CRIAR ESTRUTURA AUX");
 	printf("\n2. INSERIR VALOR NA ESTRUT AUX");
-	printf("\n3. REMOVER VALOR DA ESTRUT AUX");
-	printf("\n4. PRINTAR ESTRUTURAS");
-	printf("\n5. PEGAR TODOS OS DADOS");
-	printf("\n6. REMOVER TODOS VAL ESTRUT AUX");
+	printf("\n3. ALTERAR VALOR DA ESTRUT AUX");
+	printf("\n4. REMOVER VALOR DA ESTRUT AUX");
+	printf("\n5. PRINTAR ESTRUTURAS");
+	printf("\n6. PEGAR TODOS OS DADOS");
+	printf("\n7. REMOVER TODOS VAL ESTRUT AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);

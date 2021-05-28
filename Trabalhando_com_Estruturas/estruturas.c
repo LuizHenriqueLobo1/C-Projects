@@ -31,6 +31,11 @@ void inserirValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int 
 	vetorPrincipal[posicao].qtdElementos++;
 }
 
+void alterarValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux, int valor) {
+
+	vetorPrincipal[posicao].pEstruturaAuxiliar[posicaoEstruturaAux] = valor;
+}
+
 void removerValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux) {
 
 	int i = 0;
