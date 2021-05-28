@@ -11,6 +11,7 @@ int menu();
 void inicializar(estrutura vetorPrincipal[]);
 void criarEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int tamanho);
 void inserirValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int valor);
+void alterarValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux, int valor);
 void removerValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux);
 void printarEstrutura(estrutura vetorPrincipal[]);
 void getDadosTodasEstruturas(estrutura vetorPrincipal[]);
