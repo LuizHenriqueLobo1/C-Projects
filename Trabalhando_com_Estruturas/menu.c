@@ -31,41 +31,22 @@ int main() {
 
 				printf("\n<CRIANDO ESTRUTURA AUXILIAR>\n");
 
-				int contador = 0;
-
-				for(int i = 0; i < TAM; i++) {
-					if(vetorPrincipal[i].tamEstruturaAux > 0)
-						contador++;
-				}
-
-				if(contador == TAM) {
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) != 1) {
 					printf("\nLIMETE MAXIMO DE ESTRUTURAS AUXILIARES ATINGIDO\n");
 					break;
 				}
-
+				
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				while(1) {
-					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux > 0) {
-						printf("\nPOSICAO INVALIDA! Tente novamente: ");
-						scanf("%d", &posicao);
-					} else
-						break;
-				}
-				posicao--;
+				posicao = verificaPosicao(vetorPrincipal, posicao);
 
 				printf("\nDigite o tamanho: ");
 				scanf("%d", &tamanho);
-				while(1) {
-					if(tamanho < 1) {
-						printf("\nTAMANHO INVALIDO! Tente novamente: ");
-						scanf("%d", &tamanho);
-					} else
-						break;
-				}
+				tamanho = verificaTamanho(tamanho);
 
 				criarEstruturaAuxiliar(vetorPrincipal, posicao, tamanho);
 				printf("\nESTRUTURA AUXILIAR CRIADA COM SUCESSO\n");
+				
 				break;
 			}
 
