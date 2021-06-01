@@ -15,28 +15,18 @@ int verificaEspacoEstruturaPrincipal(estrutura vetorPrincipal[]) {
 
 	if(contador == TAM)
 		retorno = 0;
-	else
+	else if(contador == 0)
 		retorno = 1;
+	else
+		retorno = -1;
 
 	return retorno;
 }
 
-int verificaExistenciaEstruturaAux(estrutura vetorPrincipal[], int posicao) {
-
-	int retorno = 0;
-
-	if(vetorPrincipal[posicao-1].tamEstruturaAux > 0)
-		retorno = 0;
-	else
-		retorno = 1;
-
-	return retorno;
-}
-
-int verificaPosicao(estrutura vetorPrincipal[], int posicao) {
+int verificaPosicaoParaCriar(estrutura vetorPrincipal[], int posicao) {
 
 	while(1) {
-		if(posicao < 1 || posicao > 10 || verificaExistenciaEstruturaAux(vetorPrincipal, posicao) != 1) {
+		if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux > 0) {
 			printf("\nPOSICAO INVALIDA! Digite novamente: ");
 			scanf("%d", &posicao);
 		} else {
@@ -48,6 +38,35 @@ int verificaPosicao(estrutura vetorPrincipal[], int posicao) {
 	return posicao;
 }
 
+int verificaPosicaoParaInserir(estrutura vetorPrincipal[], int posicao) {
+
+	while(1) {
+		if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux == 0) {
+			printf("\nPOSICAO INVALIDA! Digite novamente: ");
+			scanf("%d", &posicao);
+		} else {
+			posicao--;
+			break;
+		}
+	}
+
+	return posicao;
+}
+
+int verificaPosicaoEstruturaAux(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux) {
+
+	while(1) {
+		if(posicaoEstruturaAux < 1 || posicaoEstruturaAux > vetorPrincipal[posicao].qtdElementos) {
+			printf("\nPOSICAO DA ESTRUTURA AUX INVALIDA! Tente novamente: ");
+			scanf("%d", &posicaoEstruturaAux);
+		} else {
+			posicaoEstruturaAux--;
+			break;
+		}
+	}
+				
+	return posicaoEstruturaAux;
+}
 
 int verificaTamanho(int tamanho) {
 
