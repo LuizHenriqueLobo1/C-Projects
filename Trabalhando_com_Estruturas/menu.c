@@ -38,7 +38,7 @@ int main() {
 				
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				posicao = verificaPosicao(vetorPrincipal, posicao);
+				posicao = verificaPosicaoParaCriar(vetorPrincipal, posicao);
 
 				printf("\nDigite o tamanho: ");
 				scanf("%d", &tamanho);
@@ -54,28 +54,14 @@ int main() {
 
 				printf("\n<INSERINDO VALOR EM ESTRUTURA AUXILIAR>\n");
 
-				int contador = 0;
-
-				for(int i = 0; i < TAM; i++) {
-					if(vetorPrincipal[i].tamEstruturaAux == 0)
-						contador++;
-				}
-
-				if(contador == TAM) {
-					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
 					break;
 				}
 
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				while(1) {
-					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
-						printf("\nPOSICAO INVALIDA! Tente novamente: ");
-						scanf("%d", &posicao);
-					} else
-						break;
-				}
-				posicao--;
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
 				printf("\nDigite o valor: ");
 				scanf("%d", &valor);
@@ -89,47 +75,24 @@ int main() {
 
 				printf("\n<ALTERANDO VALOR DA ESTRUTURA AUXILIAR>\n");
 
-				int contador = 0;
-
-				for(int i = 0; i < TAM; i++) {
-					if(vetorPrincipal[i].tamEstruturaAux <= 0)
-						contador++;
-				}
-
-				if(contador == TAM) {
-					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
 					break;
 				}
 
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				while(1) {
-					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
-						printf("\nPOSICAO INVALIDA! Tente novamente: ");
-						scanf("%d", &posicao);
-					} else
-						break;
-				}
-				posicao--;
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
 				printf("\nDigite a posicao do valor na estrutura auxiliar: ");
 				scanf("%d", &posicaoEstruturaAux);
-				while(1) {
-					if(posicaoEstruturaAux < 1 || posicaoEstruturaAux > vetorPrincipal[posicao].qtdElementos) {
-						printf("\nPOSICAO DO VALOR INVALIDA! Tente novamente: ");
-						scanf("%d", &posicaoEstruturaAux);
-					} else
-						break;
-				}
-				posicaoEstruturaAux--;
-
+				posicaoEstruturaAux = verificaPosicaoEstruturaAux(vetorPrincipal, posicao, posicaoEstruturaAux);
 
 				printf("\nDigite o novo valor: ");
 				scanf("%d", &valor);
 
 				alterarValorEstruturaAuxiliar(vetorPrincipal, posicao, posicaoEstruturaAux, valor);
 				printf("\nVALOR ALTERADO COM SUCESSO\n");
-
 				break;
 			}
 
@@ -137,39 +100,18 @@ int main() {
 
 				printf("\n<REMOVENDO VALOR EM ESTRUTURA AUXILIAR>\n");
 
-				int contador = 0;
-
-				for(int i = 0; i < TAM; i++) {
-					if(vetorPrincipal[i].tamEstruturaAux == 0)
-						contador++;
-				}
-
-				if(contador == TAM) {
-					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
 					break;
 				}
 
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				while(1) {
-					if(posicao < 0 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux <= 0) {
-						printf("\nPOSICAO INVALIDA! Tente novamente: ");
-						scanf("%d", &posicao);
-					} else
-						break;
-				}
-				posicao--;
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
 				printf("\nDigite a posicao do valor na estrutura auxiliar: ");
 				scanf("%d", &posicaoEstruturaAux);
-				while(1) {
-					if(posicaoEstruturaAux < 0 || posicaoEstruturaAux > vetorPrincipal[posicao].qtdElementos) {
-						printf("\nPOSICAO DO VALOR INVALIDA! Tente novamente: ");
-						scanf("%d", &posicaoEstruturaAux);
-					} else
-						break;
-				}
-				posicaoEstruturaAux--;
+				posicaoEstruturaAux = verificaPosicaoEstruturaAux(vetorPrincipal, posicao, posicaoEstruturaAux);
 
 				removerValorEstruturaAuxiliar(vetorPrincipal, posicao, posicaoEstruturaAux);
 				printf("\nVALOR REMOVIDO COM SUCESSO\n");
@@ -192,28 +134,14 @@ int main() {
 			case 7: {
 				printf("\n<REMOVENDO TODOS OS VALORES DE UMA ESTRUTURA AUXILIAR>\n");
 
-				int contador = 0;
-
-				for(int i = 0; i < TAM; i++) {
-					if(vetorPrincipal[i].tamEstruturaAux == 0)
-						contador++;
-				}
-
-				if(contador == TAM) {
-					printf("\nNAO EXISTE ESTRUTURA AUXILIAR\n");
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
 					break;
 				}
 
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
-				while(1) {
-					if(posicao < 1 || posicao > 10 || vetorPrincipal[posicao-1].tamEstruturaAux == 0) {
-						printf("\nPOSICAO INVALIDA! Tente novamente: ");
-						scanf("%d", &posicao);
-					} else
-						break;
-				}
-				posicao--;
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
 				removerTodosValoresEstruturaAuxiliar(vetorPrincipal, posicao);
 				printf("\nTODOS OS VALORES REMOVIDOS COM SUCESSO\n");

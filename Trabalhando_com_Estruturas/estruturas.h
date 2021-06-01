@@ -19,6 +19,7 @@ void removerTodosValoresEstruturaAuxiliar(estrutura vetorPrincipal[], int posica
 void finalizar(estrutura vetorPrincipal[]);
 
 int verificaEspacoEstruturaPrincipal(estrutura vetorPrincipal[]);
-int verificaExistenciaEstruturaAux(estrutura vetorPrincipal[], int posicao);
-int verificaPosicao(estrutura vetorPrincipal[], int posicao);
+int verificaPosicaoParaCriar(estrutura vetorPrincipal[], int posicao);
+int verificaPosicaoParaInserir(estrutura vetorPrincipal[], int posicao);
+int verificaPosicaoEstruturaAux(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux);
 int verificaTamanho(int tamanho);
