@@ -148,6 +148,23 @@ int main() {
 				break;
 			}
 
+			case 8: {
+				printf("\n<REMOVENDO ESTRUTURA AUXILIAR>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
+
+				finalizarUmaEstruturaAuxiliar(vetorPrincipal, posicao);
+				printf("\nESTRUTURA AUXILIAR REMOVIDA COM SUCESSO\n");
+				break;
+			}
+
 			default: {
 				printf("\nOPCAO INVALIDA\n");
 				break;
@@ -156,6 +173,8 @@ int main() {
 		}
 
 	}
+
+	finalizar(vetorPrincipal);
 
 	return 0;
 }
@@ -173,6 +192,7 @@ int menu() {
 	printf("\n5. PRINTAR ESTRUTURAS");
 	printf("\n6. PEGAR TODOS OS DADOS");
 	printf("\n7. REMOVER TODOS VAL ESTRUT AUX");
+	printf("\n8. REMOVER ESTRUTURA AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);
