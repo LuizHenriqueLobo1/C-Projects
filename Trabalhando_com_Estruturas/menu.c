@@ -9,6 +9,7 @@ int main() {
 	int posicaoEstruturaAux;
 	int tamanho;
 	int valor; 
+	int qtdDadosTotal = 0;
 	int loop = 1;
 	int opcao;
 
@@ -31,7 +32,7 @@ int main() {
 
 				printf("\n<CRIANDO ESTRUTURA AUXILIAR>\n");
 
-				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) != 1) {
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 0) {
 					printf("\nLIMETE MAXIMO DE ESTRUTURAS AUXILIARES ATINGIDO\n");
 					break;
 				}
@@ -126,7 +127,7 @@ int main() {
 			}
 
 			case 6: {
-				printf("\n<LISTANDO DADOS DAS ESTRUTUAS>\n");
+				printf("\n<LISTANDO DADOS DAS ESTRUTURAS>\n");
 				getDadosTodasEstruturas(vetorPrincipal);
 				break;
 			}
@@ -165,6 +166,19 @@ int main() {
 				break;
 			}
 
+			case 9: {
+				printf("\n<PEGANDO QUANTIDADE TOTAL DE DADOS DE TODAS ESTRUTURAS>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				qtdDadosTotal = getQuantidadeDadosTodasEstruturasAuxiliares(vetorPrincipal);
+				printf("\nQUANTIDADE DE DADOS TOTAL -> %d\n", qtdDadosTotal);
+				break;
+			}
+
 			default: {
 				printf("\nOPCAO INVALIDA\n");
 				break;
@@ -193,6 +207,7 @@ int menu() {
 	printf("\n6. PEGAR TODOS OS DADOS");
 	printf("\n7. REMOVER TODOS VAL ESTRUT AUX");
 	printf("\n8. REMOVER ESTRUTURA AUX");
+	printf("\n9. QUANTIDADE DE DADOS TOTAL");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);
