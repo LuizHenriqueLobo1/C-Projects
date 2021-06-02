@@ -103,6 +103,14 @@ void removerTodosValoresEstruturaAuxiliar(estrutura vetorPrincipal[], int posica
 	vetorPrincipal[posicao].qtdElementos = 0;
 }
 
+void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
+
+	vetorPrincipal[posicao].pEstruturaAuxiliar = NULL;
+	free(vetorPrincipal[posicao].pEstruturaAuxiliar);
+	vetorPrincipal[posicao].qtdElementos = 0;
+	vetorPrincipal[posicao].tamEstruturaAux = 0;
+}
+
 void finalizar(estrutura vetorPrincipal[]) {
 
 	int i;
