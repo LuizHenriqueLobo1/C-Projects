@@ -63,6 +63,8 @@ int main() {
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
 				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
+				if(verificaEspacoEstruturaAux(vetorPrincipal, posicao) != 1)
+					break;
 
 				printf("\nDigite o valor: ");
 				scanf("%d", &valor);

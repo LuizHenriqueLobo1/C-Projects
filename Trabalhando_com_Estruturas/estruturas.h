@@ -25,3 +25,4 @@ int verificaPosicaoParaCriar(estrutura vetorPrincipal[], int posicao);
 int verificaPosicaoParaInserir(estrutura vetorPrincipal[], int posicao);
 int verificaPosicaoEstruturaAux(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux);
 int verificaTamanho(int tamanho);
+int verificaEspacoEstruturaAux(estrutura vetorPrincipal[], int posicao);
