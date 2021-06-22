@@ -116,6 +116,26 @@ int getQuantidadeDadosTodasEstruturasAuxiliares(estrutura vetorPrincipal[]) {
 	return contador;
 }
 
+int salvarElementosEmArquivo(estrutura vetorPrincipal[]) {
+
+	int retorno = 1;
+	FILE *file;
+	int i, y;
+
+	file = fopen("dados.txt", "w");
+	
+	for(i = 0; i < TAM; i++) {
+		if(vetorPrincipal[i].qtdElementos > 0)
+			for(y = 0; y < vetorPrincipal[i].qtdElementos; y++)
+					fprintf(file, "%d\n", vetorPrincipal[i].pEstruturaAuxiliar[y]);
+				y = 0;
+	}
+	
+	retorno = fclose(file);
+
+	return retorno;
+}
+
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
 
 	vetorPrincipal[posicao].pEstruturaAuxiliar = NULL;

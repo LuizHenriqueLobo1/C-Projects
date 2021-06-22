@@ -181,6 +181,22 @@ int main() {
 				break;
 			}
 
+			case 10: {
+				
+				printf("\n<SALVANDO VALORES DAS ESTRUTURAS AUXILIARES EM ARQUIVO>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				if(salvarElementosEmArquivo(vetorPrincipal) == 0)
+					printf("\nOS ELEMENTOS FORAM SALVOS COM SUCESSO\n");
+				else
+					printf("\nERRO AO SALVAR ELEMENTOS\n");
+				break;
+			}
+
 			default: {
 				printf("\nOPCAO INVALIDA\n");
 				break;
@@ -200,16 +216,17 @@ int menu() {
 	int opcao;
 
 	printf("\n---------------MENU---------------");
-	printf("\n0. SAIR");
-	printf("\n1. CRIAR ESTRUTURA AUX");
-	printf("\n2. INSERIR VALOR NA ESTRUT AUX");
-	printf("\n3. ALTERAR VALOR DA ESTRUT AUX");
-	printf("\n4. REMOVER VALOR DA ESTRUT AUX");
-	printf("\n5. PRINTAR ESTRUTURAS");
-	printf("\n6. PEGAR TODOS OS DADOS");
-	printf("\n7. REMOVER TODOS VAL ESTRUT AUX");
-	printf("\n8. REMOVER ESTRUTURA AUX");
-	printf("\n9. QUANTIDADE DE DADOS TOTAL");
+	printf("\n0.  SAIR");
+	printf("\n1.  CRIAR ESTRUTURA AUX");
+	printf("\n2.  INSERIR VALOR NA ESTRUT AUX");
+	printf("\n3.  ALTERAR VALOR DA ESTRUT AUX");
+	printf("\n4.  REMOVER VALOR DA ESTRUT AUX");
+	printf("\n5.  PRINTAR ESTRUTURAS");
+	printf("\n6.  PEGAR TODOS OS DADOS");
+	printf("\n7.  REMOVER TODOS VAL ESTRUT AUX");
+	printf("\n8.  REMOVER ESTRUTURA AUX");
+	printf("\n9.  QUANTIDADE DE DADOS TOTAL");
+	printf("\n10. SALVAR VALORES DAS ESTRUT AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);

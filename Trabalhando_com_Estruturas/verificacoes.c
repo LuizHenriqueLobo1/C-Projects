@@ -86,7 +86,7 @@ int verificaEspacoEstruturaAux(estrutura vetorPrincipal[], int posicao) {
 	int retorno = 0;
 
 	if(vetorPrincipal[posicao].qtdElementos == vetorPrincipal[posicao].tamEstruturaAux) {
-		printf("\nESTRUTURA AUXILIAR CHEIA!\n");
+		printf("\nESTRUTURA AUXILIAR CHEIA\n");
 		retorno = 0;
 	} else
 		retorno = 1;
