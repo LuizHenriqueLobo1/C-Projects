@@ -10,6 +10,7 @@ typedef struct {
 }notas;
 
 typedef struct {
+	int id;
 	char nome[50];
 	char sexo;
 	int idade;
@@ -47,6 +48,7 @@ int main() {
 			}
 
 			case 2: {
+				printf("\n<LISTA DE ALUNOS>\n");
 				if(alunosCadastrados == 1) 
 					imprimirAlunosCadastrados(pessoa);
 				else
@@ -55,6 +57,7 @@ int main() {
 			}
 
 			case 3: {
+				printf("\n<LISTA DE MEDIAS DOS ALUNOS>\n");
 				if(alunosCadastrados == 1)
 					mediaAlunos(pessoa);
 				else
@@ -98,6 +101,7 @@ int cadastrarAlunosAutomaticamente(dados pessoa[]) {
 	file = fopen("dados.txt", "r");
 
 	for(i = 0; i < TAM; i++) {
+		fscanf(file, "%d\n", &pessoa[i].id);
 		fgets(pessoa[i].nome, 50, file);
 		fscanf(file, "%c", &pessoa[i].sexo);
 		fscanf(file, "%d", &pessoa[i].idade);
@@ -117,12 +121,13 @@ void imprimirAlunosCadastrados(dados pessoa[]) {
 	int i;
 
 	for(i = 0; i < TAM; i++) {
-		printf("\nNome: %s", pessoa[i].nome);
-		printf("Sexo: %c", pessoa[i].sexo);
-		printf("\nIdade: %d", pessoa[i].idade);
-		printf("\nNota 1: %.2f", pessoa[i].provas.nota1);
-		printf("\nNota 2: %.2f", pessoa[i].provas.nota2);
-		printf("\nNota 3: %.2f\n", pessoa[i].provas.nota3);
+		printf("\nID: %d", pessoa[i].id);
+		printf("\nNOME: %s", pessoa[i].nome);
+		printf("SEXO: %c", pessoa[i].sexo);
+		printf("\nIDADE: %d", pessoa[i].idade);
+		printf("\nNOTA 1: %.2f", pessoa[i].provas.nota1);
+		printf("\nNOTA 2: %.2f", pessoa[i].provas.nota2);
+		printf("\nNOTA 3: %.2f\n", pessoa[i].provas.nota3);
 	}
 }
 
@@ -133,8 +138,7 @@ void mediaAlunos(dados pessoa[]) {
 
 	for(i = 0; i < TAM; i++) {
 		media = (pessoa[i].provas.nota1 + pessoa[i].provas.nota2 + pessoa[i].provas.nota3) / 3;
-		printf("\nMedia: %.2f", media);
+		printf("\nID ALUNO: %d", pessoa[i].id);
+		printf("\nMEDIA: %.2f\n", media);
 	}
-
-	printf("\n");
 }
