@@ -194,9 +194,11 @@ int main() {
 				scanf("%d", &posicao);
 				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
+				if(verificaEstruturaAuxVazia(vetorPrincipal, posicao) != 1)
+					break;		
+
 				maiorValorEstruturaAux = getMaiorValorEstruturaAuxiliar(vetorPrincipal, posicao);
 				printf("\nMAIOR VALOR DA ESTRUTURA AUXILIAR %d -> %d\n", posicao+1, maiorValorEstruturaAux);
-
 				break;
 			}
 
