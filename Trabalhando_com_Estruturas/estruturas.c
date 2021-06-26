@@ -116,6 +116,18 @@ int getQuantidadeDadosTodasEstruturasAuxiliares(estrutura vetorPrincipal[]) {
 	return contador;
 }
 
+int getMaiorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
+
+	int maiorValor = 0;
+	int i, y;
+
+	for(i = 0; i < vetorPrincipal[posicao].qtdElementos; i++)
+		if(vetorPrincipal[posicao].pEstruturaAuxiliar[i] > maiorValor)
+			maiorValor = vetorPrincipal[posicao].pEstruturaAuxiliar[i];
+
+	return maiorValor;
+}
+
 int salvarElementosEmArquivo(estrutura vetorPrincipal[]) {
 
 	int retorno = 0;
