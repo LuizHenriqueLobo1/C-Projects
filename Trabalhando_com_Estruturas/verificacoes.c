@@ -93,3 +93,16 @@ int verificaEspacoEstruturaAux(estrutura vetorPrincipal[], int posicao) {
 
 	return retorno;
 }
+
+int verificaEstruturaAuxVazia(estrutura vetorPrincipal[], int posicao) {
+
+	int retorno = 0;
+
+	if(vetorPrincipal[posicao].qtdElementos <= 0) {
+		printf("\nESTRUTURA AUXILIAR VAZIA\n");
+		retorno = 0;
+	} else
+		retorno = 1;
+
+	return retorno;
+}
