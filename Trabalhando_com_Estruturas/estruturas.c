@@ -128,6 +128,18 @@ int getMaiorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
 	return maiorValor;
 }
 
+int getMenorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
+
+	int menorValor = vetorPrincipal[posicao].pEstruturaAuxiliar[0];
+	int i, y;
+
+	for(i = 0; i < vetorPrincipal[posicao].qtdElementos; i++)
+		if(vetorPrincipal[posicao].pEstruturaAuxiliar[i] < menorValor)
+			menorValor = vetorPrincipal[posicao].pEstruturaAuxiliar[i];
+
+	return menorValor;
+}
+
 int salvarElementosEmArquivo(estrutura vetorPrincipal[]) {
 
 	int retorno = 0;

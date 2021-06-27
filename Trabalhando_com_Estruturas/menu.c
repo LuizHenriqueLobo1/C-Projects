@@ -10,6 +10,7 @@ int main() {
 	int tamanho;
 	int valor;
 	int maiorValorEstruturaAux;
+	int menorValorEstruturaAux;
 	int qtdDadosTotal = 0;
 	int loop = 1;
 	int opcao;
@@ -195,7 +196,7 @@ int main() {
 				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
 
 				if(verificaEstruturaAuxVazia(vetorPrincipal, posicao) != 1)
-					break;		
+					break;
 
 				maiorValorEstruturaAux = getMaiorValorEstruturaAuxiliar(vetorPrincipal, posicao);
 				printf("\nMAIOR VALOR DA ESTRUTURA AUXILIAR %d -> %d\n", posicao+1, maiorValorEstruturaAux);
@@ -203,7 +204,26 @@ int main() {
 			}
 
 			case 11: {
-				
+				printf("\n<PEGANDO MENOR VALOR DA ESTRUTURA AUXILIAR>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
+
+				if(verificaEstruturaAuxVazia(vetorPrincipal, posicao) != 1)
+					break;
+
+				menorValorEstruturaAux = getMenorValorEstruturaAuxiliar(vetorPrincipal, posicao);
+				printf("\nMENOR VALOR DA ESTRUTURA AUXILIAR %d -> %d\n", posicao+1, menorValorEstruturaAux);
+				break;
+			}
+
+			case 12: {
 				printf("\n<SALVANDO VALORES DAS ESTRUTURAS AUXILIARES EM ARQUIVO>\n");
 
 				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
@@ -248,7 +268,8 @@ int menu() {
 	printf("\n8.  REMOVER ESTRUTURA AUX");
 	printf("\n9.  QUANTIDADE DE DADOS TOTAL");
 	printf("\n10. PEGAR MAIOR VALOR ESTRUT AUX");
-	printf("\n11. SALVAR VALORES DAS ESTRUT AUX");
+	printf("\n11. PEGAR MENOR VALOR ESTRUT AUX");
+	printf("\n12. SALVAR VALORES DAS ESTRUT AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);
