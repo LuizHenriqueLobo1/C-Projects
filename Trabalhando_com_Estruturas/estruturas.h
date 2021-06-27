@@ -18,6 +18,7 @@ void getDadosTodasEstruturas(estrutura vetorPrincipal[]);
 void removerTodosValoresEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int getQuantidadeDadosTodasEstruturasAuxiliares(estrutura vetorPrincipal[]);
 int getMaiorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
+int getMenorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int salvarElementosEmArquivo(estrutura vetorPrincipal[]);
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 void finalizar(estrutura vetorPrincipal[]);
