@@ -13,6 +13,7 @@ int main() {
 	int maiorValorEstruturaAux;
 	int menorValorEstruturaAux;
 	int qtdDadosTotal = 0;
+	int qtdDados = 0;
 	int loop = 1;
 	int opcao;
 
@@ -32,7 +33,6 @@ int main() {
 			}
 
 			case 1: {
-
 				printf("\n<CRIANDO ESTRUTURA AUXILIAR>\n");
 
 				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 0) {
@@ -55,7 +55,6 @@ int main() {
 			}
 
 			case 2: {
-
 				printf("\n<INSERINDO VALOR EM ESTRUTURA AUXILIAR>\n");
 
 				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
@@ -78,7 +77,6 @@ int main() {
 			}
 
 			case 3: {
-
 				printf("\n<ALTERANDO VALOR DA ESTRUTURA AUXILIAR>\n");
 
 				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
@@ -103,7 +101,6 @@ int main() {
 			}
 
 			case 4: {
-
 				printf("\n<REMOVENDO VALOR EM ESTRUTURA AUXILIAR>\n");
 
 				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
@@ -240,7 +237,12 @@ int main() {
 			}
 
 			case 13: {
-				printf("\n<ALTERANDO VALOR DA ESTRUTURA AUXILIAR>\n");
+				printf("\n<ALTERANDO TAMANHO DA ESTRUTURA AUXILIAR>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
 
 				printf("\nDigite a posicao: ");
 				scanf("%d", &posicao);
@@ -252,6 +254,27 @@ int main() {
 
 				alterarTamanhoEstruturaAuxiliar(vetorPrincipal, posicao, novoTamanho);
 				printf("\nTAMANHO DA ESTRUTURA AUXILIAR ALTERADO COM SUCESSO\n");
+				break;
+			}
+
+			case 14: {
+				printf("\n<PEGANDO QUANTIDADE DE DADOS DE ESTRUTURA AUXILIAR>\n");
+
+				if(verificaEspacoEstruturaPrincipal(vetorPrincipal) == 1) {
+					printf("\nNAO EXISTE NENHUMA ESTRUTURA AUXILIAR\n");
+					break;
+				}
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
+
+				if(verificaEstruturaAuxVazia(vetorPrincipal, posicao) != 1)
+					break;
+
+				qtdDados = getQuantidadeDadosUmaEstruturaAuxiliar(vetorPrincipal, posicao);
+				printf("\nQUANTIDADE DE DADOS DA POSICAO %d -> %d\n", posicao+1, qtdDados);
+
 				break;
 			}
 
@@ -288,6 +311,7 @@ int menu() {
 	printf("\n11. PEGAR MENOR VALOR ESTRUT AUX");
 	printf("\n12. SALVAR VALORES DAS ESTRUT AUX");
 	printf("\n13. ALTERAR TAMANHO ESTRUT AUX");
+	printf("\n14. QUANTIDADE DE DADOS ESTRUT AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);
