@@ -174,6 +174,13 @@ void alterarTamanhoEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, in
 	vetorPrincipal[posicao].tamEstruturaAux += novoTamanho;
 }
 
+int getQuantidadeDadosUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
+	
+	int retorno = 0;
+	retorno = vetorPrincipal[posicao].qtdElementos;
+	return retorno;
+}
+
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
 
 	vetorPrincipal[posicao].pEstruturaAuxiliar = NULL;

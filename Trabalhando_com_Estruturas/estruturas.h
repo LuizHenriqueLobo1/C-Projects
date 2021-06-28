@@ -21,6 +21,7 @@ int getMaiorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int getMenorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int salvarElementosEmArquivo(estrutura vetorPrincipal[]);
 void alterarTamanhoEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int novoTamanho);
+int getQuantidadeDadosUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 void finalizar(estrutura vetorPrincipal[]);
 
