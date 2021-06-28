@@ -20,6 +20,7 @@ int getQuantidadeDadosTodasEstruturasAuxiliares(estrutura vetorPrincipal[]);
 int getMaiorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int getMenorValorEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 int salvarElementosEmArquivo(estrutura vetorPrincipal[]);
+void alterarTamanhoEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int novoTamanho);
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao);
 void finalizar(estrutura vetorPrincipal[]);
 
@@ -28,5 +29,6 @@ int verificaPosicaoParaCriar(estrutura vetorPrincipal[], int posicao);
 int verificaPosicaoParaInserir(estrutura vetorPrincipal[], int posicao);
 int verificaPosicaoEstruturaAux(estrutura vetorPrincipal[], int posicao, int posicaoEstruturaAux);
 int verificaTamanho(int tamanho);
+int verificaNovoTamanho(estrutura vetorPrincipal[], int posicao, int novoTamanho);
 int verificaEspacoEstruturaAux(estrutura vetorPrincipal[], int posicao);
 int verificaEstruturaAuxVazia(estrutura vetorPrincipal[], int posicao);
