@@ -165,6 +165,15 @@ int salvarElementosEmArquivo(estrutura vetorPrincipal[]) {
 	return retorno;
 }
 
+void alterarTamanhoEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao, int novoTamanho) {
+
+	int tamanhoAtual = vetorPrincipal[posicao].tamEstruturaAux;
+	novoTamanho -= tamanhoAtual;
+
+	vetorPrincipal[posicao].pEstruturaAuxiliar = realloc(vetorPrincipal[posicao].pEstruturaAuxiliar, (tamanhoAtual + novoTamanho));
+	vetorPrincipal[posicao].tamEstruturaAux += novoTamanho;
+}
+
 void finalizarUmaEstruturaAuxiliar(estrutura vetorPrincipal[], int posicao) {
 
 	vetorPrincipal[posicao].pEstruturaAuxiliar = NULL;

@@ -8,6 +8,7 @@ int main() {
 	int posicao;
 	int posicaoEstruturaAux;
 	int tamanho;
+	int novoTamanho;
 	int valor;
 	int maiorValorEstruturaAux;
 	int menorValorEstruturaAux;
@@ -238,6 +239,22 @@ int main() {
 				break;
 			}
 
+			case 13: {
+				printf("\n<ALTERANDO VALOR DA ESTRUTURA AUXILIAR>\n");
+
+				printf("\nDigite a posicao: ");
+				scanf("%d", &posicao);
+				posicao = verificaPosicaoParaInserir(vetorPrincipal, posicao);
+
+				printf("\nDigite o novo tamanho: ");
+				scanf("%d", &novoTamanho);
+				novoTamanho = verificaNovoTamanho(vetorPrincipal, posicao, novoTamanho);
+
+				alterarTamanhoEstruturaAuxiliar(vetorPrincipal, posicao, novoTamanho);
+				printf("\nTAMANHO DA ESTRUTURA AUXILIAR ALTERADO COM SUCESSO\n");
+				break;
+			}
+
 			default: {
 				printf("\nOPCAO INVALIDA\n");
 				break;
@@ -270,6 +287,7 @@ int menu() {
 	printf("\n10. PEGAR MAIOR VALOR ESTRUT AUX");
 	printf("\n11. PEGAR MENOR VALOR ESTRUT AUX");
 	printf("\n12. SALVAR VALORES DAS ESTRUT AUX");
+	printf("\n13. ALTERAR TAMANHO ESTRUT AUX");
 	printf("\n----------------------------------");
 	printf("\n> ");
 	scanf("%d", &opcao);

@@ -81,6 +81,19 @@ int verificaTamanho(int tamanho) {
 	return tamanho;
 }
 
+int verificaNovoTamanho(estrutura vetorPrincipal[], int posicao, int novoTamanho) {
+
+	while(1) {
+		if(novoTamanho < 1 || novoTamanho <= vetorPrincipal[posicao].tamEstruturaAux) {
+			printf("\nTAMANHO INVALIDO! Digite novamente: ");
+			scanf("%d", &novoTamanho);
+		} else
+			break;
+	}
+
+	return novoTamanho;
+}
+
 int verificaEspacoEstruturaAux(estrutura vetorPrincipal[], int posicao) {
 
 	int retorno = 0;
