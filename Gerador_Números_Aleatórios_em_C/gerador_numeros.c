@@ -28,13 +28,15 @@ int main() {
                 scanf("%d", &qtdNumeros);
 
                 numerosAleatorios(qtdNumeros);
+                break;
             }
 
+            default: {
+                printf("\nOPCAO INVALIDA\n");
+                break;
+            }
         }
-
     }
-
-    
 
     return 0;
 }
