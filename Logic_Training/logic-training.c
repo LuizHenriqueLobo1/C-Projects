@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 void q1();
 void q2();
@@ -7,7 +8,7 @@ void q3();
 void q3_upgrade();
 
 int main() {
-	q2_upgrade();
+	q3_upgrade();
 }
 
 // 1. Escreva um programa que leia um número 
@@ -122,6 +123,7 @@ void q3_upgrade() {
 
 	printf("Digite um caractere: ");
 	scanf("%c", &caractere);
+	caractere = tolower(caractere);
 
 	for(int i = 0; caracteres[i] != '\0'; i++) {
 		if(caractere == caracteres[i]) {
